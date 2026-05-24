@@ -2,6 +2,8 @@
 
 A Vite + Three.js generative art playground where seeded N-body systems become glowing orbital drawings.
 
+![Orbital mechanics art preview](assets/orbital-preview.gif)
+
 ## Run
 
 ```bash
@@ -22,11 +24,11 @@ npm run preview
 
 ## Controls
 
-- `Bodies`, `Mass range`, and `Initial velocity` regenerate deterministic initial conditions from the current seed.
-- `Gravity`, `Softening`, and `Time step` update the running physics simulation.
-- `Trail length`, `Bloom`, and `Palette` update the renderer.
-- `New Seed` creates a new composition.
-- `Export 4K` downloads a PNG named with the seed, palette, body count, gravity, softening, and time step.
+- `Bodies`, `Mass cap`, and `Launch scale` regenerate deterministic initial conditions from the current seed.
+- `Gravity`, `Softening radius`, and `Step dt` update the running physics simulation.
+- `Trail samples`, `Bloom gain`, and `Palette` update the renderer.
+- `Generate` creates a new seeded composition.
+- `Export PNG` downloads a 4K PNG named with the seed, palette, body count, gravity, softening, and time step.
 
 ## Implementation Notes
 
