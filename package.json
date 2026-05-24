@@ -1,0 +1,20 @@
+{
+  "name": "orbital-mechanics-art",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "scripts": {
+    "dev": "vite --host 127.0.0.1",
+    "build": "vite build",
+    "preview": "vite preview --host 127.0.0.1",
+    "test": "vitest run",
+    "test:watch": "vitest"
+  },
+  "dependencies": {
+    "three": "latest"
+  },
+  "devDependencies": {
+    "vite": "latest",
+    "vitest": "latest"
+  }
+}

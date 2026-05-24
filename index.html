@@ -1,0 +1,105 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Orbital Atelier</title>
+  </head>
+  <body>
+    <main id="app">
+      <canvas id="scene-canvas" aria-label="Orbital mechanics generative art canvas"></canvas>
+
+      <section class="control-shell" aria-label="Simulation controls">
+        <header class="panel-header">
+          <div>
+            <p class="app-kicker">Orbital Atelier</p>
+            <h1>Controls</h1>
+          </div>
+          <span id="statePill" class="state-pill">Live</span>
+        </header>
+
+        <div class="control-section">
+          <div class="section-title">Initial Conditions</div>
+          <label class="control-row">
+            <span>Bodies</span>
+            <output id="bodyCountValue"></output>
+            <input id="bodyCount" type="range" min="2" max="36" step="1" />
+          </label>
+          <label class="control-row">
+            <span>Mass cap</span>
+            <output id="massMaxValue"></output>
+            <input id="massMax" type="range" min="1" max="12" step="0.1" />
+          </label>
+          <label class="control-row">
+            <span>Launch scale</span>
+            <output id="velocityScaleValue"></output>
+            <input id="velocityScale" type="range" min="0.2" max="2.4" step="0.01" />
+          </label>
+          <label class="control-row seed-row">
+            <span>Seed</span>
+            <input id="seedInput" type="text" spellcheck="false" />
+          </label>
+        </div>
+
+        <div class="control-section">
+          <div class="section-title">Integrator</div>
+          <label class="control-row">
+            <span>Gravity</span>
+            <output id="gravityValue"></output>
+            <input id="gravity" type="range" min="0.2" max="4" step="0.01" />
+          </label>
+          <label class="control-row">
+            <span>Softening radius</span>
+            <output id="softeningValue"></output>
+            <input id="softening" type="range" min="0.05" max="2.5" step="0.01" />
+          </label>
+          <label class="control-row">
+            <span>Step dt</span>
+            <output id="timeStepValue"></output>
+            <input id="timeStep" type="range" min="0.002" max="0.05" step="0.001" />
+          </label>
+          <label class="control-row">
+            <span>Speed</span>
+            <output id="simulationSpeedValue"></output>
+            <input id="simulationSpeed" type="range" min="0.25" max="8" step="0.25" />
+          </label>
+        </div>
+
+        <div class="control-section">
+          <div class="section-title">Render</div>
+          <label class="control-row">
+            <span>Palette</span>
+            <select id="palette"></select>
+          </label>
+          <label class="control-row">
+            <span>Trail samples</span>
+            <output id="trailLengthValue"></output>
+            <input id="trailLength" type="range" min="120" max="2600" step="20" />
+          </label>
+          <label class="control-row">
+            <span>Bloom gain</span>
+            <output id="bloomStrengthValue"></output>
+            <input id="bloomStrength" type="range" min="0" max="3" step="0.01" />
+          </label>
+        </div>
+
+        <div class="button-grid">
+          <button id="generateButton" type="button">Generate</button>
+          <button id="pauseButton" type="button">Pause</button>
+          <button id="resetCameraButton" type="button">Camera</button>
+          <button id="exportButton" type="button" class="primary">Export PNG</button>
+        </div>
+
+        <dl class="stats-panel" aria-label="Simulation statistics">
+          <div><dt>Time</dt><dd id="timeStat">0.00</dd></div>
+          <div><dt>Energy</dt><dd id="energyStat">0.00</dd></div>
+          <div><dt>FPS</dt><dd id="fpsStat">0</dd></div>
+          <div><dt>Seed</dt><dd id="seedStat">-</dd></div>
+        </dl>
+      </section>
+
+      <div id="exportStatus" class="export-status" role="status" aria-live="polite"></div>
+    </main>
+    <script type="module" src="/src/main.js"></script>
+  </body>
+</html>
